@@ -1,0 +1,32 @@
+
+
+
+<div id="content">
+  <div id="top">
+      <p id="logo" routerLink="/" routerLinkActive="active">nanokauppa</p>
+     <div id="buttons">
+        <a class="button" routerLink="/buy" routerLinkActive="active">Osta</a>
+        <a class="button" routerLink="/sell" routerLinkActive="active">Myy</a>
+        <a class="button" routerLink="/orders" routerLinkActive="active">Tilaukset</a>
+        <a class="button" routerLink="/info" routerLinkActive="Info">Info</a>
+      </div>
+      <div id="value">
+        1 NANO = {{cryptos[0].price_eur | number : '1.2-2' }}€
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  
+  <div id="bottom">
+    <div id="social">
+
+        <a href="https://www.facebook.com">
+          <img src="../../assets/images/facebook-square.svg">
+        </a>
+
+        <a href="https://www.twitter.com">
+          <img src="../../assets/images/twitter-square.svg">
+         </a>
+
+    </div>
+  </div>
+</div>

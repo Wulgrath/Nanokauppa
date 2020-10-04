@@ -1,0 +1,20 @@
+<div id="content">
+  <div id="header">Ostolomakkeet</div>
+  <div id="search">
+    <input type="text" [(ngModel)]="term" id="search" placeholder="Haku">
+  </div>
+  <div id="pages">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div *ngFor="let form of Buyforms.reverse() |filter:term | paginate: { itemsPerPage: 10, currentPage: p } ">
+    <div class="orders">
+      <div class="stat">Etunimi: {{ form.firstname }}</div>
+      <div class="stat">Sukunimi: {{ form.lastname }}</div>
+      <div class="stat">Sähköposti: {{ form.email }}</div>
+      <div class="stat">Lompakko: {{ form.wallet }}</div>
+      <div class="stat">Ostomäärä: {{ form.buyAmount }} €</div>
+      <div class="stat">Uploaded: {{ form.uploaded }}</div>
+      <div class="stat">Viitenumero: {{ form.referenceId }}</div>
+    </div>
+  </div>
+</div>

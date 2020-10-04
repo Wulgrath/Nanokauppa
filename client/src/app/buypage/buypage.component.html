@@ -1,0 +1,89 @@
+<div class="container">
+
+  <div id="buy">  
+  <h1>Osta Nanoa</h1>
+    <form [formGroup] ="buyForm" #formDir="ngForm">
+
+      <div class="form-group">
+        <label for="firstname">Etunimi</label><br>
+        <input type="text" id="firstname" class="form-control"
+        formControlName="firstname" required>
+
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="danger">
+          <div *ngIf="firstname.errors.required">
+            Pakollinen kenttä.
+          </div>   
+          <div *ngIf="firstname.errors.pattern">
+            Etunimi ei kelvollinen.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Sukunimi</label><br>
+        <input type="text" id="lastname" class="form-control"
+        formControlName="lastname" required>
+
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="danger">
+          <div *ngIf="lastname.errors.required">
+              Pakollinen kenttä.
+          </div>  
+          <div *ngIf="lastname.errors.pattern">
+              Sukunimi ei kelvollinen.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Sähköposti</label><br>
+        <input type="text" id="email" class="form-control"
+        formControlName="email" required>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="danger">
+            <div *ngIf="email.errors.required">
+                Pakollinen kenttä.
+            </div>
+            <div *ngIf="email.errors.pattern">
+                Sähköposti ei kelvollinen.
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+          <label for="wallet">NANO-lompakko</label> 
+            <div class="tooltip">?
+            <span class="tooltiptext">Lompakkoinfo tähän</span>
+          </div> <br>
+          <input type="text" id="wallet" class="form-control"
+          formControlName="wallet" required>
+        <div *ngIf="wallet.invalid && (wallet.dirty || wallet.touched)" class="danger">
+            <div *ngIf="wallet.errors.required">
+                Pakollinen kenttä.
+            </div>  
+            <div *ngIf="wallet.errors.pattern">
+                Lompakon osoite ei kelvollinen.
+            </div>
+          </div>
+        </div>
+      
+      <div class="form-group">
+        <label for="buyAmount">Ostomäärä €</label><br>
+        <input type="text" id="buyAmount" class="form-control" formControlName="buyAmount" 
+        (ngModelChange)="setBuyValue($event)" required>
+        = {{value/cryptos[0].price_eur || 0 |  number : '1.2-2'}} NANO
+        <div *ngIf="buyAmount.invalid && (buyAmount.dirty || buyAmount.touched)" class="danger">
+            <div *ngIf="buyAmount.errors.required">
+                Pakollinen kenttä.
+            </div>  
+            <div *ngIf="buyAmount.errors.pattern">
+                Anna tasaluku välillä 1-9999.
+            </div>
+          </div>
+        </div>
+        <div id="confirmed" *ngIf="submitted">Tilaus lähetetty. Saat sähköpostiisi tilauksen tiedot sekä maksun viitteen.
+        </div>
+      <button type="submit" class="btn btn-primary" 
+      [disabled]="buyForm.invalid" (click)="submit()">Osta</button>
+    </form>
+
+  </div>
+</div>

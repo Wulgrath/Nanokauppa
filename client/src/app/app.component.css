@@ -1,0 +1,79 @@
+@font-face {
+  font-family: Prosto_One;
+  src: url('../assets/fonts/Prosto_One/ProstoOne-Regular.ttf');
+}
+
+
+
+#top{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background: linear-gradient(rgb(0,2,83), rgb(0,2,124));
+  }
+
+
+#buttons{
+  grid-column-start: 2;
+  grid-column-end: 4;
+  justify-self: end;
+}
+
+.button:hover {
+  background-color: rgb(24, 77, 177);
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button {
+
+  /* color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size:150%;
+  font-weight: bold; */
+  padding: 15px 30px 15px 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 16px;  
+  border-radius: 1px;
+  
+}
+
+
+#value {
+  color:white;
+  font-weight:bold;
+  font-stretch: extra-expanded;
+}
+
+#logo {
+  font-family: Prosto_One;
+  font-size: 175%;
+  color: white;
+  cursor: pointer;
+} 
+
+#bottom{
+  display:grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  background: linear-gradient(rgb(0,2,83), rgb(0,2,124));
+  }
+
+  #bottom img{
+    width: 40px;
+    padding: 20px;
+  }
+

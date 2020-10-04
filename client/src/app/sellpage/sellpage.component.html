@@ -1,0 +1,106 @@
+<div class="container">
+  <div id="sell">
+    <h1>Myy Nanoa</h1>
+    <form [formGroup] ="sellForm" #formDir="ngForm">
+
+      <div class="form-group">
+        <label for="firstname">Etunimi</label><br>
+        <input type="text" id="firstname" class="form-control"
+         formControlName="firstname" required>
+         <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="danger">
+            <div *ngIf="firstname.errors.required">
+              Pakollinen kenttä.
+            </div>   
+            <div *ngIf="firstname.errors.pattern">
+              Etunimi ei kelvollinen.
+            </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Sukunimi</label><br>
+        <input type="text" id="lastname" class="form-control"
+         formControlName="lastname" required>
+         <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="danger">
+            <div *ngIf="lastname.errors.required">
+                Pakollinen kenttä.
+            </div>  
+            <div *ngIf="lastname.errors.pattern">
+                Sukunimi ei kelvollinen.
+            </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="email">Sähköposti</label><br>
+          <input type="text" id="email" class="form-control"
+           formControlName="email" required>
+           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="danger">
+              <div *ngIf="email.errors.required">
+                  Pakollinen kenttä.
+              </div>
+              <div *ngIf="email.errors.pattern">
+                  Sähköposti ei kelvollinen.
+              </div>
+            </div>
+      </div>
+
+      <div class="form-group">
+          <label for="wallet">Nano-lompakko</label> 
+          
+          <div class="tooltip">?
+          <span class="tooltiptext">Syötä tähän NANO lompakko-osoitteesi, josta suoritat meille NANO-sirron</span>
+
+          </div> <br>
+          <input type="text" id="wallet" class="form-control"
+           formControlName="wallet" required>
+           <div *ngIf="wallet.invalid && (wallet.dirty || wallet.touched)" class="danger">
+              <div *ngIf="wallet.errors.required">
+                  Pakollinen kenttä.
+              </div>  
+              <div *ngIf="wallet.errors.pattern">
+                  Lompakon osoite ei kelvollinen.
+              </div>
+            </div>
+      </div>
+
+      <div class="form-group">
+          <label for="account">IBAN-tilinumero</label>
+        <div class="tooltip">?
+            <span class="tooltiptext">Syötä tähän tilinumerosi, johon suoritamme maksun</span>
+        </div>
+
+          <input type="text" id="account" clas="form-control"
+          formControlName="account" required>
+            <div *ngIf="account.invalid && (account.dirty || account.touched)" class="danger">
+                <div *ngIf="account.errors.required">
+                    Pakollinen kenttä.
+                </div>  
+                <div *ngIf="account.errors.pattern">
+                    Anna muodossa FI1212341234123412 ilman välilyöntejä.
+                </div>
+            </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sellAmount">Myyntimäärä NANO</label><br>
+        <input type="text" id="sellAmount" class="form-control" formControlName="sellAmount" 
+        (ngModelChange)="setSellValue($event)" required>
+        = {{value*cryptos[0].price_eur || 0 |  number : '1.2-2'}} EUR
+        <div *ngIf="sellAmount.invalid && (sellAmount.dirty || sellAmount.touched)" class="danger">
+            <div *ngIf="sellAmount.errors.required">
+                Pakollinen kenttä.
+            </div>  
+            <div *ngIf="sellAmount.errors.pattern">
+                Kokonaisluku voi olla välillä 0-9999.
+            </div>
+          </div>
+      </div>
+      
+      <div id="confirmed" *ngIf="submitted">Lomake lähtetetty</div>
+
+      <button type="submit" class="btn btn-primary" 
+      [disabled]="sellForm.invalid" (click)="submit()">Myy</button>
+    </form>
+  </div>
+</div>

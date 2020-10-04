@@ -1,0 +1,77 @@
+
+#container {
+background-color:  #FFFFFF;
+
+
+}
+
+
+#faq {
+background-color:#f1f4f6;
+
+
+}
+
+h1 {
+text-align:center;
+padding: 1em;
+letter-spacing: 0.015em;
+font-family:"Trebuchet MS", Helvetica, sans-serif;
+
+}
+#nanovideo{
+    display: block;
+    margin: 0 auto;
+
+
+}
+#teaminfo {
+    text-align:center;
+    margin:2em;
+
+}
+
+h2 {
+   text-align:left;
+   margin-left:3em;
+   color:#4a90e2;
+   font-size:1.2rem;
+   letter-spacing: 0.02em;
+   margin-right:25em;
+   text-indent: -1.2em;
+   line-height:1.6em;
+
+}
+p {
+line-height:1.5em;
+margin:0 auto;
+
+}
+li {
+text-align:left;
+margin-left:4rem;
+margin-right:25rem;
+line-height: 1.5rem;
+height: 3em;       /* height is 2x line-height, so two lines will display */
+text-indent: -1.3em;
+
+
+
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+    li {
+        text-align:center;
+        margin-left:none;
+        margin-right:none;
+        background-color:blue;
+        padding:none
+    }
+    h2 {
+        margin:none;
+        padding:none;
+    }
+}
